@@ -1,11 +1,11 @@
-int buttonWidth = 750/2 - 150; 
-int buttonHeight = 750/2 - 300;
-int buttonX = 750/2 - (buttonWidth/2);
-int buttonY = 750/2;
+int buttonWidth = 800/2 - 150; 
+int buttonHeight = 800/2 - 300;
+int buttonX = 800/2 - (buttonWidth/2);
+int buttonY = 800/2;
 
 int triHeight = 10; 
 int triWidth = 20; 
-int oneTriX = 750/2 + 125;
+int oneTriX = 800/2 + 125;
 
 void createButton(String text, int x, int y, int bWidth, int bHeight) {
   fill(colorTheme[3]);

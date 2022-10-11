@@ -10,7 +10,3 @@ void createCentipede(int x, int y) {
 void moveCentipede() {
   //Maak dit nog even
 }
-
-boolean bugSquashed() {
-  return (mouseX > bugX && mouseY > bugY && mouseX < bugX + bugSize && mouseY < bugY + bugSize);
-}

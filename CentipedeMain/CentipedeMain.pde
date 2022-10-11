@@ -1,4 +1,4 @@
-int curScreen = 0; 
+int curScreen = 1; 
 int timerStart = 0; 
 
 int colorTheme[] = {#cdb4db, #ffc8dd, #ffafcc, #bde0fe, #a2d2ff};
@@ -17,7 +17,7 @@ int bananaCounter;
 int fieldSize = 1; 
 
 void setup() {
-  size(750, 750); 
+  size(800, 800); 
   gm = createFont("gotham-medium.otf", 128);
 }
 
@@ -27,6 +27,7 @@ void draw() {
 
   if (curScreen == STARTSCHERM) {
     createStart();
+    
   } else if (curScreen == SPELSCHERM) {
 
     createSpelscherm(); 
