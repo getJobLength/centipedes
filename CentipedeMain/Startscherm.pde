@@ -3,7 +3,6 @@ PFont gm;
 
 int playerCount = 1; 
 
-
 void createStart() {
   textFont(gm);
   textAlign(CENTER, CENTER);
@@ -27,11 +26,8 @@ void createBananaSelector() {
   int sWidth = 30;
   int margin = 30; 
   stroke(colorTheme[2]);
-  
-  for (int i = 1; i < 6; i++) {
-    fill(colorTheme[1]);
-    square(width/3 + margin + (sWidth/2), height/3 + 75, sWidth);
-    
+  createButtonRow(6, margin, sWidth);
+  for (int i = 1; i < 6; i++) {    
     //change color if bananacounter is the same as the i pos
     fill(colorTheme[2]);
     if (bananaCounter == i) {

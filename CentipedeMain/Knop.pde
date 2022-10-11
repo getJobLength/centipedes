@@ -26,6 +26,16 @@ void createPlayerSelector() {
   triangle(oneTriX + (triWidth*4),height/3, oneTriX + (triWidth*3),height/3 - triHeight, oneTriX + (triWidth*3),height/3 + triHeight);
 }
 
+void createButtonRow(int rowAmnt, int margin, int sWidth) {
+  stroke(colorTheme[2]);
+  
+  for (int i = 1; i < rowAmnt; i++) {
+    fill(colorTheme[1]);
+    square(width/3 + margin + (sWidth/2), height/3 + 75, sWidth);
+    margin += sWidth;
+  }
+}
+
 boolean mouseButtonCheck(int xMouse, int yMouse, int buttonX, int buttonY, int bWidth, int bHeight) {
   return (xMouse > buttonX && yMouse > buttonY && xMouse < buttonX + bWidth && yMouse < buttonY + bHeight); 
 }
