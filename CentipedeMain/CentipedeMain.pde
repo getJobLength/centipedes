@@ -3,9 +3,13 @@ int timerStart = 0;
 
 int colorTheme[] = {#cdb4db, #ffc8dd, #ffafcc, #bde0fe, #a2d2ff};
 int playingField[][] = {
-                       {16,20,24,28,32},
-                       {8,10,12,14,16}
-                       };
+  {16, 8}, 
+  {20, 10}, 
+  {24, 12}, 
+  {28, 14}, 
+  {32, 16}
+
+};
 
 int bananaCounter;
 
@@ -37,29 +41,25 @@ void draw() {
 
 
 void mouseReleased() {
-  
-  //banana mouseclickcheck
+
   int sWidth = 30;
-  int margin = 30; 
+  int margin = 30;
+  //banana mouseclickcheck 
   for (int i = 1; i < 6; i++) {
-     if (mouseButtonCheck(mouseX, mouseY, width/3 + margin + (sWidth/2), height/3 + 75, sWidth, sWidth)) {
-        bananaCounter = i; 
-        println(bananaCounter);
-     }
-     margin += sWidth;
+    if (mouseButtonCheck(mouseX, mouseY, width/3 + margin + (sWidth/2), height/3 + 75, sWidth, sWidth)) {
+      bananaCounter = i; 
+      println(bananaCounter);
+    }
+    margin += sWidth;
   }
-  
-  // Button control. 
+
+  // Start button. 
   if (mouseButtonCheck(mouseX, mouseY, buttonX, buttonY + 200, buttonWidth, buttonHeight)) {
     curScreen = SPELSCHERM;
     timerStart = millis();
   }
 
-  //if (mouseButtonCheck(mouseX, mouseY, buttonX, buttonY + buttonHeight + 10, buttonWidth, buttonHeight)) {
-  //  curScreen = SPELSCHERM;
-  //  score = lastScore;
-  //}
-
+  // Stop button. 
   if (mouseButtonCheck(mouseX, mouseY, width/2 - (buttonWidth/2), height - buttonHeight - 50, buttonWidth, buttonHeight)) {
     curScreen = STARTSCHERM; 
     lastScore = score; 
