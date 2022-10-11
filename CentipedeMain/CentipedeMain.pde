@@ -12,6 +12,8 @@ int playingField[][] = {
 };
 
 int bananaCounter;
+int scoreP1;
+int scoreP2; 
 
 //PAS DIT AAN! PUUR VOOR TESTING PURPOSES
 int fieldSize = 1; 
@@ -22,18 +24,16 @@ void setup() {
 }
 
 void draw() {
-
   background(colorTheme[0]);    
 
   if (curScreen == STARTSCHERM) {
     createStart();
     
   } else if (curScreen == SPELSCHERM) {
-
     createSpelscherm(); 
 
     //createCentipede(bugX, bugY); 
-    moveCentipede();
+    //moveCentipede();
 
   } else if (curScreen == EINDSCHERM) {
     // als 30 seconden voorbij zijn laat eindscherm zien
@@ -42,7 +42,6 @@ void draw() {
 
 
 void mouseReleased() {
-
   int sWidth = 30;
   int margin = 30;
   for (int i = 1; i < 6; i++) {
@@ -58,6 +57,14 @@ void mouseReleased() {
     }
     margin += sWidth;
   }
+  
+    // Arrows for playerCount. Decide how many players are playing. 
+  if (mouseButtonCheck(mouseX, mouseY, oneTriX, height/3 - triHeight, triWidth, triHeight*2) && playerCount == 2) {
+    playerCount = 1;
+  }
+  if (mouseButtonCheck(mouseX, mouseY, oneTriX + (triWidth*3), height/3 - triHeight, triWidth, triHeight*2) && playerCount == 1) {
+    playerCount = 2;
+  }
 
   // Start button. 
   if (mouseButtonCheck(mouseX, mouseY, buttonX, buttonY + 200, buttonWidth, buttonHeight)) {
@@ -68,15 +75,7 @@ void mouseReleased() {
   // Stop button. 
   if (mouseButtonCheck(mouseX, mouseY, width/2 - (buttonWidth/2), height - buttonHeight - 50, buttonWidth, buttonHeight)) {
     curScreen = STARTSCHERM; 
-    lastScore = score; 
-    score = 0;
-  }
-
-  // Arrows for playerCount. Decide how many players are playing. 
-  if (mouseButtonCheck(mouseX, mouseY, oneTriX, height/3 - triHeight, triWidth, triHeight*2) && playerCount == 2) {
-    playerCount = 1;
-  }
-  if (mouseButtonCheck(mouseX, mouseY, oneTriX + (triWidth*3), height/3 - triHeight, triWidth, triHeight*2) && playerCount == 1) {
-    playerCount = 2;
+    //lastScore = score; 
+    //score = 0;
   }
 }

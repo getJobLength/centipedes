@@ -12,8 +12,8 @@ void createSpelscherm() {
   text("Centipede", width/2, height/15);
   
   textSize(20);
-  text("Score speler 1: " + score, width/5, height/7); 
-  text("Score speler 2: " + score, width - width/5, height/7); 
+  text("Score speler 1: " + scoreP1, width/5, height/7); 
+  text("Score speler 2: " + scoreP2, width - width/5, height/7); 
   
   createPlayingGrid();
   
