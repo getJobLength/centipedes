@@ -12,7 +12,9 @@ int playingField[][] = {
 };
 
 int bananaCounter;
-int fieldSize; 
+
+//PAS DIT AAN! PUUR VOOR TESTING PURPOSES
+int fieldSize = 1; 
 
 void setup() {
   size(750, 750); 
@@ -29,12 +31,9 @@ void draw() {
 
     createSpelscherm(); 
 
-    createCentipede(bugX, bugY); 
+    //createCentipede(bugX, bugY); 
     moveCentipede();
-    if (bugX + bugSize >= width || bugX <= 0) {
-      bugX = (int)random(200, 600) - bugSize;
-      bugY = (int)random(200, 600) - bugSize;
-    }
+
   } else if (curScreen == EINDSCHERM) {
     // als 30 seconden voorbij zijn laat eindscherm zien
   }
@@ -51,7 +50,7 @@ void mouseReleased() {
       bananaCounter = i; 
       println(bananaCounter);
     }
-    // Check for field option
+    // Check for field size option
     if (mouseButtonCheck(mouseX, mouseY, width/3 + margin + (sWidth/2), height/3 + 155, sWidth, sWidth)) {   
       fieldSize = i;
       println(fieldSize);
