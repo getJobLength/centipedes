@@ -3,10 +3,10 @@ int timerStart = 0;
 
 int colorTheme[] = {#cdb4db, #ffc8dd, #ffafcc, #bde0fe, #a2d2ff};
 
+int bananaCounter;
+
 void setup() {
-
   size(750, 750); 
-
   gm = createFont("gotham-medium.otf", 128);
 }
 
@@ -16,7 +16,6 @@ void draw() {
 
   if (curScreen == STARTSCHERM) {
     createStart();
-    
   } else if (curScreen == SPELSCHERM) {
 
     createSpelscherm(); 
@@ -34,7 +33,18 @@ void draw() {
 
 
 void mouseReleased() {
-    
+  
+  //banana mouseclickcheck
+  int sWidth = 30;
+  int margin = 30; 
+  for (int i = 1; i < 6; i++) {
+     if (mouseButtonCheck(mouseX, mouseY, width/3 + margin + (sWidth/2), height/3 + 75, sWidth, sWidth)) {
+        bananaCounter = i; 
+        println(bananaCounter);
+     }
+     margin += sWidth;
+  }
+  
   // Button control. 
   if (mouseButtonCheck(mouseX, mouseY, buttonX, buttonY + 200, buttonWidth, buttonHeight)) {
     curScreen = SPELSCHERM;

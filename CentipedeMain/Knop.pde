@@ -18,7 +18,7 @@ void createButton(String text, int x, int y, int bWidth, int bHeight) {
   text(text, x + bWidth/2, y + (buttonHeight/2) - 5);
 }
 
-void createSpelerSelector() {
+void createPlayerSelector() {
   text(playerCount, oneTriX + (triWidth*2), height/3);
   
   fill(colorTheme[2]);
