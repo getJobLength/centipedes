@@ -12,6 +12,7 @@ int playingField[][] = {
 };
 
 int bananaCounter;
+int fieldSize; 
 
 void setup() {
   size(750, 750); 
@@ -44,11 +45,16 @@ void mouseReleased() {
 
   int sWidth = 30;
   int margin = 30;
-  //banana mouseclickcheck 
   for (int i = 1; i < 6; i++) {
+    //banana mouseclickcheck 
     if (mouseButtonCheck(mouseX, mouseY, width/3 + margin + (sWidth/2), height/3 + 75, sWidth, sWidth)) {
       bananaCounter = i; 
       println(bananaCounter);
+    }
+    // Check for field option
+    if (mouseButtonCheck(mouseX, mouseY, width/3 + margin + (sWidth/2), height/3 + 155, sWidth, sWidth)) {   
+      fieldSize = i;
+      println(fieldSize);
     }
     margin += sWidth;
   }
