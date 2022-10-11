@@ -2,6 +2,10 @@ int curScreen = 0;
 int timerStart = 0; 
 
 int colorTheme[] = {#cdb4db, #ffc8dd, #ffafcc, #bde0fe, #a2d2ff};
+int playingField[][] = {
+                       {16,20,24,28,32},
+                       {8,10,12,14,16}
+                       };
 
 int bananaCounter;
 

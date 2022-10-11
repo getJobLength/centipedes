@@ -18,20 +18,11 @@ void createButton(String text, int x, int y, int bWidth, int bHeight) {
   text(text, x + bWidth/2, y + (buttonHeight/2) - 5);
 }
 
-void createPlayerSelector() {
-  text(playerCount, oneTriX + (triWidth*2), height/3);
-  
-  fill(colorTheme[2]);
-  triangle(oneTriX,height/3, oneTriX + triWidth,height/3 - triHeight, oneTriX + triWidth,height/3 + triHeight);
-  triangle(oneTriX + (triWidth*4),height/3, oneTriX + (triWidth*3),height/3 - triHeight, oneTriX + (triWidth*3),height/3 + triHeight);
-}
-
-void createButtonRow(int rowAmnt, int margin, int sWidth) {
+void createButtonRow(int rowAmnt, int margin, int sWidth, int y) {
   stroke(colorTheme[2]);
-  
   for (int i = 1; i < rowAmnt; i++) {
     fill(colorTheme[1]);
-    square(width/3 + margin + (sWidth/2), height/3 + 75, sWidth);
+    square(width/3 + margin + (sWidth/2), y, sWidth);
     margin += sWidth;
   }
 }

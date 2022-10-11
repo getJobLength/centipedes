@@ -11,22 +11,35 @@ void createStart() {
   text("Centipede", width/2, height/8);
   textSize(30);
 
+  fill(colorTheme[1]);
   text("Aantal Spelers", width/2, height/3);
-  createPlayerSelector();
+  createPlayerSelector(); 
+  
   fill(colorTheme[1]);
   text("Aantal Bananen", width/2, height/3 + 50);
   createBananaSelector(); 
+  
+  fill(colorTheme[1]);
+  text("Grootte Speelveld", width/2, height/3 + 130);
+  createPlayingFieldSelector();
 
   createButton("Start nieuw spel", buttonX, buttonY + 200, buttonWidth, buttonHeight);
 }
 
-
+void createPlayerSelector() {  
+  text(playerCount, oneTriX + (triWidth*2), height/3);
+  
+  fill(colorTheme[2]);
+  triangle(oneTriX,height/3, oneTriX + triWidth,height/3 - triHeight, oneTriX + triWidth,height/3 + triHeight);
+  triangle(oneTriX + (triWidth*4),height/3, oneTriX + (triWidth*3),height/3 - triHeight, oneTriX + (triWidth*3),height/3 + triHeight);
+}
 
 void createBananaSelector() {
   int sWidth = 30;
   int margin = 30; 
   stroke(colorTheme[2]);
-  createButtonRow(6, margin, sWidth);
+  createButtonRow(6, margin, sWidth, height/3 + 75);
+  
   for (int i = 1; i < 6; i++) {    
     //change color if bananacounter is the same as the i pos
     fill(colorTheme[2]);
@@ -37,4 +50,10 @@ void createBananaSelector() {
     text(i, width/3 + margin + sWidth, height/3 + 90);
     margin += sWidth;
   }
+}
+
+void createPlayingFieldSelector() {  
+  createButtonRow(6, 30, 30, height/3 + 155);
+  
+  
 }
