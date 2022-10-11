@@ -8,7 +8,7 @@ void createCentipede(int x, int y) {
 }
 
 void moveCentipede() {
-
+  //Maak dit nog even
 }
 
 boolean bugSquashed() {
