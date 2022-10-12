@@ -30,8 +30,8 @@ void draw() {
     createStart();
   } else if (curScreen == SPELSCHERM) {
     createSpelscherm(); 
-
     createCentipedeHead(xPlayer, yPlayer);
+    createObject((int)random(width/2 - (playingField[fieldSize - 1][0] * squareSize) /2, width/2 - (playingField[fieldSize - 1][0] * squareSize) /2 - playingField[fieldSize - 1][0]), (int)random(height/3 - (squareSize*2), height/3 - (squareSize*2) - playingField[fieldSize - 1][0]), bananaCounter);
   } else if (curScreen == EINDSCHERM) {
     // als 30 seconden voorbij zijn laat eindscherm zien
   }
