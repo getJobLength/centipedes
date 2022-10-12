@@ -3,6 +3,7 @@ int score = 0;
 int stage = 0;
 
 int lastScore;
+int squareSize = 25;
 
 void createSpelscherm() {
   textFont(gm);
@@ -24,7 +25,7 @@ void createSpelscherm() {
 void createPlayingGrid() {
   fill(255);
   stroke(0);
-  int squareSize = 25;
+  
   int squareX = width/2 - ((playingField[fieldSize - 1][0] * squareSize) /2 );
   int squareY = height/3 - (squareSize*2);
  

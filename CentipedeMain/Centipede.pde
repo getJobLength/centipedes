@@ -1,12 +1,27 @@
-int bugSize = 30; 
-int bugX = (int)random(200, 600) - bugSize;
-int bugY = (int)random(200, 600) - bugSize;
+int bodyPartSize = 25; 
+int xPlayer = 800/2 - ((playingField[fieldSize - 1][0] * bodyPartSize) /2 );
+int yPlayer = 800 / 3 - bodyPartSize; 
 
-void createCentipede(int x, int y) {
+
+void createCentipedeHead(int x, int y) {
   //Maak centipede
-  square(x, y, bugSize);
+  fill(colorTheme[3]);
+  square(x, y, bodyPartSize);
 }
 
 void moveCentipede() {
-  //Maak dit nog even
+  switch(keyCode) {
+  case RIGHT:
+    xPlayer += squareSize;  
+    break;
+  case LEFT: 
+    xPlayer -= squareSize; 
+    break;
+  case UP:  
+    yPlayer -= squareSize; 
+    break;
+  case DOWN: 
+    yPlayer += squareSize; 
+    break;
+  }
 }

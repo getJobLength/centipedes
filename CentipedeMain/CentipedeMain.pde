@@ -28,13 +28,10 @@ void draw() {
 
   if (curScreen == STARTSCHERM) {
     createStart();
-    
   } else if (curScreen == SPELSCHERM) {
     createSpelscherm(); 
 
-    //createCentipede(bugX, bugY); 
-    //moveCentipede();
-
+    createCentipedeHead(xPlayer, yPlayer);
   } else if (curScreen == EINDSCHERM) {
     // als 30 seconden voorbij zijn laat eindscherm zien
   }
@@ -57,8 +54,8 @@ void mouseReleased() {
     }
     margin += sWidth;
   }
-  
-    // Arrows for playerCount. Decide how many players are playing. 
+
+  // Arrows for playerCount. Decide how many players are playing. 
   if (mouseButtonCheck(mouseX, mouseY, oneTriX, height/3 - triHeight, triWidth, triHeight*2) && playerCount == 2) {
     playerCount = 1;
   }
@@ -78,4 +75,8 @@ void mouseReleased() {
     //lastScore = score; 
     //score = 0;
   }
+}
+
+void keyPressed() {
+  moveCentipede();
 }
