@@ -3,6 +3,9 @@ int headPartSize = 25;
 int xPlayer = 800/2 - ((playingField[fieldSize - 1][0] * headPartSize) /2 );
 int yPlayer = 800 / 3 - headPartSize; 
 
+int testPosX; 
+int testPosY; 
+
 int centipedePos[][] = {
   {xPlayer, yPlayer}, 
   {200, yPlayer + 1 * headPartSize}, 
@@ -39,28 +42,48 @@ void cycleThroughArray() {
 }
 
 void constrainCentipede() {
-    centipedePos[0][0] = constrain(centipedePos[0][0], width/2 - ((playingField[fieldSize - 1][0] * squareSize) /2 ), width/2 - ((playingField[fieldSize - 1][0] * squareSize)/2) + playingField[fieldSize - 1][0] * squareSize - squareSize); 
-    centipedePos[0][1] = constrain(centipedePos[0][1], height/3 - (squareSize*2), height/3 - (squareSize*2) + playingField[fieldSize - 1][1] * squareSize - squareSize);
+  centipedePos[0][0] = constrain(centipedePos[0][0], width/2 - ((playingField[fieldSize - 1][0] * squareSize) /2 ), width/2 - ((playingField[fieldSize - 1][0] * squareSize)/2) + playingField[fieldSize - 1][0] * squareSize - squareSize); 
+  centipedePos[0][1] = constrain(centipedePos[0][1], height/3 - (squareSize*2), height/3 - (squareSize*2) + playingField[fieldSize - 1][1] * squareSize - squareSize);
 }
 
+boolean collisionDetection(int testPosX, int testPosY) {
+  for (int i = 1; i < centipedePos.length; i++) {
+    if (testPosX == centipedePos[i][0] && testPosY == centipedePos[i][1]) {
+      return true;
+    }
+  }
+  return false;
+}
 
 void moveCentipede() {
   switch(keyCode) {
   case RIGHT:
-    cycleThroughArray();
-    centipedePos[0][0] += squareSize;  
+    testPosX = centipedePos[0][0] + squareSize;
+    if (!collisionDetection(testPosX, centipedePos[0][1])) {
+      cycleThroughArray();
+      centipedePos[0][0] += squareSize;
+    }
     break;
   case LEFT: 
-    cycleThroughArray();
-    centipedePos[0][0] -= squareSize;
+    testPosX = centipedePos[0][0] - squareSize;
+    if (!collisionDetection(testPosX, centipedePos[0][1])) {
+      cycleThroughArray();
+      centipedePos[0][0] -= squareSize;
+    }    
     break;
   case UP:  
-    cycleThroughArray();
-    centipedePos[0][1] -= squareSize;
+    testPosY = centipedePos[0][1] - squareSize;
+    if (!collisionDetection(centipedePos[0][0], testPosY)) {
+      cycleThroughArray();
+      centipedePos[0][1] -= squareSize;
+    } 
     break;
   case DOWN: 
-    cycleThroughArray();
-    centipedePos[0][1] += squareSize;
+    testPosY = centipedePos[0][1] + squareSize;
+    if (!collisionDetection(centipedePos[0][0], testPosY)) {
+      cycleThroughArray();
+      centipedePos[0][1] += squareSize;
+    }
     break;
   }
 }

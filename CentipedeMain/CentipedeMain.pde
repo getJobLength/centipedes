@@ -35,6 +35,7 @@ void draw() {
     drawCentipede();
     
     
+    
   } else if (curScreen == EINDSCHERM) {
     // als 30 seconden voorbij zijn laat eindscherm zien
   }
