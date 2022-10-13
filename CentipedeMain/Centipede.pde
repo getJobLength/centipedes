@@ -1,8 +1,6 @@
 int xPlayer = 800/2 - ((playingField[fieldSize - 1][0] * squareSize) /2 );
 int yPlayer = 800 / 3 - squareSize; 
 
- 
-
 int centipedePos[][] = {
   {xPlayer, yPlayer}, 
   {200, yPlayer + 1 * squareSize}, 

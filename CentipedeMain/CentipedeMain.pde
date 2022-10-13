@@ -14,8 +14,9 @@ int playingField[][] = {
   {32, 16}
 
 };
+//PAS DIT AAN! PUUR VOOR TESTING PURPOSES
+int bananaCounter = 2;
 
-int bananaCounter;
 int scoreP1;
 int scoreP2; 
 
@@ -41,7 +42,6 @@ void draw() {
     drawSpelscherm();
     //constrainCentipede(); 
     drawCentipede();
-   println(centipedePos[0][0]); 
     
     
     

@@ -1,8 +1,11 @@
 final int OBJECTSIZE = 25; 
 
-void createObject(int x, int y, int amount) {
-  for (int i = 0; i < amount - 1; i ++) {
+int xObject = (int)random(xConMin, xConMax); 
+int yObject = (int)random(yConMin, yConMax); 
+
+
+
+void drawObject(int x, int y) {
     fill(0);
     square(x, y, OBJECTSIZE);
-  }
 }

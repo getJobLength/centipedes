@@ -17,6 +17,7 @@ void drawSpelscherm() {
   text("Score speler 2: " + scoreP2, width - width/5, height/7); 
   
   createPlayingGrid();
+  drawObject(xObject, yObject);
   
   createButton("Stop", width/2 - (buttonWidth/2), height - buttonHeight - 50, buttonWidth, buttonHeight); 
   text("Verstreken tijd: " + (millis() - timerStart)/1000, width/2, height/5);
