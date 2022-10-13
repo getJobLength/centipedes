@@ -1,19 +1,24 @@
-int headPartSize = 25;
+int xPlayer = 800/2 - ((playingField[fieldSize - 1][0] * squareSize) /2 );
+int yPlayer = 800 / 3 - squareSize; 
 
-int xPlayer = 800/2 - ((playingField[fieldSize - 1][0] * headPartSize) /2 );
-int yPlayer = 800 / 3 - headPartSize; 
-
-int testPosX; 
-int testPosY; 
+ 
 
 int centipedePos[][] = {
   {xPlayer, yPlayer}, 
-  {200, yPlayer + 1 * headPartSize}, 
-  {200, yPlayer + 2 * headPartSize}, 
-  {200, yPlayer + 3 * headPartSize}, 
-  {200, yPlayer + 4 * headPartSize}, 
-  {200, yPlayer + 5 * headPartSize}
+  {200, yPlayer + 1 * squareSize}, 
+  {200, yPlayer + 2 * squareSize}, 
+  {200, yPlayer + 3 * squareSize}, 
+  {200, yPlayer + 4 * squareSize}, 
+  {200, yPlayer + 5 * squareSize}
 }; 
+
+int testPosX = centipedePos[0][0]; 
+int testPosY = centipedePos[0][1];
+
+int xConMin = 800/2 - ((playingField[fieldSize - 1][0] * squareSize) /2) - squareSize;
+int xConMax = xConMin + (playingField[fieldSize - 1][0] * squareSize) + squareSize;
+int yConMin = 800/3 - (squareSize*3);
+int yConMax = yConMin + (playingField[fieldSize - 1][1] * squareSize) + squareSize;
 
 void drawCentipede() {
   drawCentipedeHead(centipedePos[0][0], centipedePos[0][1]);
@@ -25,13 +30,13 @@ void drawCentipede() {
 void drawCentipedeHead(int x, int y) {
   //Maak centipede
   fill(colorTheme[3]);
-  square(x, y, headPartSize);
+  square(x, y, squareSize);
 }
 
 void drawCentipedeBody(int x, int y) {
   stroke(colorTheme[3]);
   fill(colorTheme[4]);
-  square(x, y, headPartSize);
+  square(x, y, squareSize);
 }
 
 void cycleThroughArray() {
@@ -41,10 +46,16 @@ void cycleThroughArray() {
   }
 }
 
-void constrainCentipede() {
-  centipedePos[0][0] = constrain(centipedePos[0][0], width/2 - ((playingField[fieldSize - 1][0] * squareSize) /2 ), width/2 - ((playingField[fieldSize - 1][0] * squareSize)/2) + playingField[fieldSize - 1][0] * squareSize - squareSize); 
-  centipedePos[0][1] = constrain(centipedePos[0][1], height/3 - (squareSize*2), height/3 - (squareSize*2) + playingField[fieldSize - 1][1] * squareSize - squareSize);
-}
+//void constrainCentipede() {
+//  centipedePos[0][0] = constrain(centipedePos[0][0], width/2 - ((playingField[fieldSize - 1][0] * squareSize) /2 ), width/2 - ((playingField[fieldSize - 1][0] * squareSize)/2) + playingField[fieldSize - 1][0] * squareSize - squareSize); 
+//  centipedePos[0][1] = constrain(centipedePos[0][1], height/3 - (squareSize*2), height/3 - (squareSize*2) + playingField[fieldSize - 1][1] * squareSize - squareSize);
+//}
+
+
+boolean conCentipede() {
+ return testPosX > xConMin && testPosX < xConMax && testPosY > yConMin && testPosY < yConMax;
+}    
+
 
 boolean collisionDetection(int testPosX, int testPosY) {
   for (int i = 1; i < centipedePos.length; i++) {
@@ -59,30 +70,34 @@ void moveCentipede() {
   switch(keyCode) {
   case RIGHT:
     testPosX = centipedePos[0][0] + squareSize;
-    if (!collisionDetection(testPosX, centipedePos[0][1])) {
+    if (!collisionDetection(testPosX, centipedePos[0][1]) && conCentipede()) {
       cycleThroughArray();
       centipedePos[0][0] += squareSize;
+      testPosX = centipedePos[0][0];
     }
     break;
   case LEFT: 
     testPosX = centipedePos[0][0] - squareSize;
-    if (!collisionDetection(testPosX, centipedePos[0][1])) {
+    if (!collisionDetection(testPosX, centipedePos[0][1]) && conCentipede()) {
       cycleThroughArray();
       centipedePos[0][0] -= squareSize;
+      testPosX = centipedePos[0][0];
     }    
     break;
   case UP:  
     testPosY = centipedePos[0][1] - squareSize;
-    if (!collisionDetection(centipedePos[0][0], testPosY)) {
+    if (!collisionDetection(centipedePos[0][0], testPosY) && conCentipede()) {
       cycleThroughArray();
       centipedePos[0][1] -= squareSize;
+      testPosY = centipedePos[0][1];
     } 
     break;
   case DOWN: 
     testPosY = centipedePos[0][1] + squareSize;
-    if (!collisionDetection(centipedePos[0][0], testPosY)) {
+    if (!collisionDetection(centipedePos[0][0], testPosY) && conCentipede()) {
       cycleThroughArray();
       centipedePos[0][1] += squareSize;
+      testPosY = centipedePos[0][1];
     }
     break;
   }

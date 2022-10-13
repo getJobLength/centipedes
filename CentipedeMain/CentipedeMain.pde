@@ -1,3 +1,7 @@
+int width; 
+int height; 
+
+int squareSize = 25;
 int curScreen = 1; 
 int timerStart = 0; 
 
@@ -20,8 +24,12 @@ int fieldSize = 1;
 
 void setup() {
   size(800, 800); 
+  width = 800; 
+  height = 800;
+  
+  //println("xConMin met var: " , -xConMin);
+  //println("xConMin zonder var: " , 800/2 - ((playingField[fieldSize - 1][0] * squareSize) /2));
   gm = createFont("gotham-medium.otf", 128);
-  println(800/2 - ((playingField[fieldSize - 1][0] * headPartSize) /2 ));
 }
 
 void draw() {
@@ -31,8 +39,9 @@ void draw() {
     createStart();
   } else if (curScreen == SPELSCHERM) {
     drawSpelscherm();
-    constrainCentipede(); 
+    //constrainCentipede(); 
     drawCentipede();
+   println(centipedePos[0][0]); 
     
     
     

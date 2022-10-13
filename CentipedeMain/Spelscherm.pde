@@ -3,7 +3,7 @@ int score = 0;
 int stage = 0;
 
 int lastScore;
-int squareSize = 25;
+
 
 void drawSpelscherm() {
   textFont(gm);
