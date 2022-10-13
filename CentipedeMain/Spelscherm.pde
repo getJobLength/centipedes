@@ -5,7 +5,7 @@ int stage = 0;
 int lastScore;
 int squareSize = 25;
 
-void createSpelscherm() {
+void drawSpelscherm() {
   textFont(gm);
   textAlign(CENTER, CENTER);
   textSize(60); 
@@ -28,7 +28,6 @@ void createPlayingGrid() {
   
   int squareX = width/2 - ((playingField[fieldSize - 1][0] * squareSize) /2 );
   int squareY = height/3 - (squareSize*2);
- 
 
   for (int i = 0; i < playingField[fieldSize - 1][1]; i++) {
     for (int j = 0; j < playingField[fieldSize - 1][0]; j++) {

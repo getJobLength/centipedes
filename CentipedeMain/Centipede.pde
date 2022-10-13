@@ -38,6 +38,12 @@ void cycleThroughArray() {
   }
 }
 
+void constrainCentipede() {
+    centipedePos[0][0] = constrain(centipedePos[0][0], width/2 - ((playingField[fieldSize - 1][0] * squareSize) /2 ), width - (playingField[fieldSize - 1][0] * squareSize/2) ); 
+    centipedePos[0][1] = constrain(centipedePos[0][1], 0, height - headPartSize);
+}
+
+
 void moveCentipede() {
   switch(keyCode) {
   case RIGHT:

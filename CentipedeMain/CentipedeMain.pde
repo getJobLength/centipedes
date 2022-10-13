@@ -30,8 +30,10 @@ void draw() {
   if (curScreen == STARTSCHERM) {
     createStart();
   } else if (curScreen == SPELSCHERM) {
-    createSpelscherm(); 
+    drawSpelscherm();
+    constrainCentipede(); 
     drawCentipede();
+    
     
   } else if (curScreen == EINDSCHERM) {
     // als 30 seconden voorbij zijn laat eindscherm zien
