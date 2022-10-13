@@ -21,6 +21,7 @@ int fieldSize = 1;
 void setup() {
   size(800, 800); 
   gm = createFont("gotham-medium.otf", 128);
+  println(800/2 - ((playingField[fieldSize - 1][0] * headPartSize) /2 ));
 }
 
 void draw() {
@@ -30,8 +31,8 @@ void draw() {
     createStart();
   } else if (curScreen == SPELSCHERM) {
     createSpelscherm(); 
-    createCentipedeHead(xPlayer, yPlayer);
-    createObject((int)random(width/2 - (playingField[fieldSize - 1][0] * squareSize) /2, width/2 - (playingField[fieldSize - 1][0] * squareSize) /2 - playingField[fieldSize - 1][0]), (int)random(height/3 - (squareSize*2), height/3 - (squareSize*2) - playingField[fieldSize - 1][0]), bananaCounter);
+    drawCentipede();
+    
   } else if (curScreen == EINDSCHERM) {
     // als 30 seconden voorbij zijn laat eindscherm zien
   }
