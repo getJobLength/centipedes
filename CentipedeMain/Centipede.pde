@@ -7,7 +7,8 @@ int centipedePos[][] = {
   {200, yPlayer + 2 * squareSize}, 
   {200, yPlayer + 3 * squareSize}, 
   {200, yPlayer + 4 * squareSize}, 
-  {200, yPlayer + 5 * squareSize}
+  {200, yPlayer + 5 * squareSize},
+  {200, yPlayer + 6 * squareSize}
 }; 
 
 int testPosX = centipedePos[0][0]; 
@@ -44,16 +45,9 @@ void cycleThroughArray() {
   }
 }
 
-//void constrainCentipede() {
-//  centipedePos[0][0] = constrain(centipedePos[0][0], width/2 - ((playingField[fieldSize - 1][0] * squareSize) /2 ), width/2 - ((playingField[fieldSize - 1][0] * squareSize)/2) + playingField[fieldSize - 1][0] * squareSize - squareSize); 
-//  centipedePos[0][1] = constrain(centipedePos[0][1], height/3 - (squareSize*2), height/3 - (squareSize*2) + playingField[fieldSize - 1][1] * squareSize - squareSize);
-//}
-
-
 boolean conCentipede() {
  return testPosX > xConMin && testPosX < xConMax && testPosY > yConMin && testPosY < yConMax;
 }    
-
 
 boolean collisionDetection(int testPosX, int testPosY) {
   for (int i = 1; i < centipedePos.length; i++) {

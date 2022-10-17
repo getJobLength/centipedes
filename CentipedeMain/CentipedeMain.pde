@@ -2,7 +2,7 @@ int width;
 int height; 
 
 int squareSize = 25;
-int curScreen = 1; 
+int curScreen = 3; 
 int timerStart = 0; 
 
 int colorTheme[] = {#cdb4db, #ffc8dd, #ffafcc, #bde0fe, #a2d2ff};
@@ -15,7 +15,7 @@ int playingField[][] = {
 
 };
 //PAS DIT AAN! PUUR VOOR TESTING PURPOSES
-int bananaCounter = 2;
+int bananaCounter = 5;
 
 int scoreP1;
 int scoreP2; 
@@ -43,10 +43,12 @@ void draw() {
     //constrainCentipede(); 
     drawCentipede();
     
-    
+    if (centipedePos.length == 1) {
+      curScreen = EINDSCHERM; 
+    }
     
   } else if (curScreen == EINDSCHERM) {
-    // als 30 seconden voorbij zijn laat eindscherm zien
+    drawEndscreen(); 
   }
 }
 
@@ -87,6 +89,12 @@ void mouseReleased() {
     curScreen = STARTSCHERM; 
     //lastScore = score; 
     //score = 0;
+  }
+  
+  // Restart button. 
+  if (mouseButtonCheck(mouseX, mouseY, width/2 - (buttonWidth/2), height/2, buttonWidth, buttonHeight)) {
+    score = 0; 
+    curScreen = STARTSCHERM;
   }
 }
 
