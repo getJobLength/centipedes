@@ -27,6 +27,11 @@ void drawSpelscherm() {
   text("Verstreken tijd: " + (millis() - timerStart)/1000, width/2, height/5);
 }
 
+//boolean timeOver() {
+// IF no input for 20 seconds return true
+//  return (millis() - timerStart)/1000 == 20; 
+//}
+
 void drawPlayingGrid() {
   fill(255);
   stroke(0);
