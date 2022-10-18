@@ -1,8 +1,7 @@
-int width; 
-int height; 
+ 
 
 int squareSize = 25;
-int curScreen = 3; 
+int curScreen = 1; 
 int timerStart = 0; 
 
 int colorTheme[] = {#cdb4db, #ffc8dd, #ffafcc, #bde0fe, #a2d2ff};
@@ -12,10 +11,9 @@ int playingField[][] = {
   {24, 12}, 
   {28, 14}, 
   {32, 16}
-
 };
 //PAS DIT AAN! PUUR VOOR TESTING PURPOSES
-int bananaCounter = 5;
+int bananaCounter = 20;
 
 int scoreP1;
 int scoreP2; 
@@ -25,11 +23,6 @@ int fieldSize = 1;
 
 void setup() {
   size(800, 800); 
-  width = 800; 
-  height = 800;
-  
-  //println("xConMin met var: " , -xConMin);
-  //println("xConMin zonder var: " , 800/2 - ((playingField[fieldSize - 1][0] * squareSize) /2));
   gm = createFont("gotham-medium.otf", 128);
 }
 
@@ -59,7 +52,7 @@ void mouseReleased() {
   for (int i = 1; i < 6; i++) {
     //banana mouseclickcheck 
     if (mouseButtonCheck(mouseX, mouseY, width/3 + margin + (sWidth/2), height/3 + 75, sWidth, sWidth)) {
-      bananaCounter = i; 
+      bananaCounter = i + 19; 
       println(bananaCounter);
     }
     // Check for field size option
@@ -81,6 +74,8 @@ void mouseReleased() {
   // Start button. 
   if (mouseButtonCheck(mouseX, mouseY, buttonX, buttonY + 200, buttonWidth, buttonHeight)) {
     curScreen = SPELSCHERM;
+    createBananas();
+    createChameleons();
     timerStart = millis();
   }
 

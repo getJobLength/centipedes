@@ -43,11 +43,11 @@ void createBananaSelector() {
   for (int i = 1; i < 6; i++) {    
     //change color if bananacounter is the same as the i pos
     fill(colorTheme[2]);
-    if (bananaCounter == i) {
+    if (bananaCounter == i + 19) {
       fill(colorTheme[4]);
     }
-
-    text(i, width/3 + margin + sWidth, height/3 + 90);
+    textSize(15);
+    text(i + 19, width/3 + margin + sWidth, height/3 + 90);
     margin += sWidth;
   }
 }

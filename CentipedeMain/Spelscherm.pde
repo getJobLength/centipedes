@@ -4,7 +4,6 @@ int stage = 0;
 
 int lastScore;
 
-
 void drawSpelscherm() {
   textFont(gm);
   textAlign(CENTER, CENTER);
