@@ -1,4 +1,3 @@
- 
 boolean devMode = true; 
 int squareSize = 25;
 int curScreen = 0; 
@@ -12,13 +11,12 @@ int playingField[][] = {
   {28, 14}, 
   {32, 16}
 };
-//PAS DIT AAN! PUUR VOOR TESTING PURPOSES
+
 int bananaCounter = 20;
 
 int scoreP1;
 int scoreP2; 
 
-//PAS DIT AAN! PUUR VOOR TESTING PURPOSES
 int fieldSize = 1; 
 
 void setup() {
@@ -32,23 +30,20 @@ void draw() {
   if (curScreen == STARTSCHERM) {
     createStart();
   } else if (curScreen == SPELSCHERM) {
-    drawSpelscherm();
-    //constrainCentipede(); 
+    drawSpelscherm(); 
     drawCentipede();
-    
+
     if (devMode) {
       println("Player = x: " + centipedePos[0][0] + ",y: " + centipedePos[0][1]);
       bananaHit();
-      chameleonHit(); 
+      chameleonHit();
     }
-    
-    
+
     if (centipedePos.length == 1 || scoreP1 == bananaCounter * 10) {
-      curScreen = EINDSCHERM; 
+      curScreen = EINDSCHERM;
     }
-    
   } else if (curScreen == EINDSCHERM) {
-    drawEndscreen(); 
+    drawEndscreen();
   }
 }
 
@@ -92,21 +87,21 @@ void mouseReleased() {
     //lastScore = score; 
     //score = 0;
   }
-  
+
   // Restart button. 
   if (mouseButtonCheck(mouseX, mouseY, width/2 - (buttonWidth/2), height/2, buttonWidth, buttonHeight)) {
-    score = 0; 
+    scoreP1 = 0; 
     curScreen = STARTSCHERM;
   }
 }
 
 void keyPressed() {
   moveCentipede();
-  
+
   if (bananaHit()) {
-    scoreP1 += 10; 
+    scoreP1 += 10;
   }
   if (chameleonHit()) {
-    centipedePos = shortenCentipede(centipedePos); 
+    centipedePos = shortenCentipede(centipedePos);
   }
 }
