@@ -1,7 +1,7 @@
  
 
 int squareSize = 25;
-int curScreen = 1; 
+int curScreen = 0; 
 int timerStart = 0; 
 
 int colorTheme[] = {#cdb4db, #ffc8dd, #ffafcc, #bde0fe, #a2d2ff};
