@@ -43,7 +43,7 @@ void draw() {
     }
     
     
-    if (centipedePos.length == 1) {
+    if (centipedePos.length == 1 || scoreP1 == bananaCounter * 10) {
       curScreen = EINDSCHERM; 
     }
     
@@ -107,6 +107,6 @@ void keyPressed() {
     scoreP1 += 10; 
   }
   if (chameleonHit()) {
-    shortenCentipede(centipedePos); 
+    centipedePos = shortenCentipede(centipedePos); 
   }
 }

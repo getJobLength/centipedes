@@ -60,7 +60,9 @@ boolean bananaHit() {
     println("Banana = x: " + xBanana + ",y: " + yBanana);
     }
     
-      if (centipedePos[0][0] == xBanana && centipedePos[0][1] == yBanana) {
+      if (centipedePos[0][0] == xBanana && centipedePos[0][1] == yBanana) { 
+        bananaPos[i][0] = -1; 
+        bananaPos[i][1] = -1; 
         return true; 
       }
   }
