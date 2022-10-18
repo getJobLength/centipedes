@@ -14,7 +14,6 @@ void createBananas() {
     if (posFree(x,y)) {
       bananaPos[bananaPlaced][0] = x;
       bananaPos[bananaPlaced][1] = y;
-      println("Banana = x: " + x + ",y: " + y);
       bananaPlaced++; 
     }
   }
@@ -27,7 +26,6 @@ void createChameleons() {
     if (posFree(x,y)) {
       chameleonPos[chameleonPlaced][0] = x;
       chameleonPos[chameleonPlaced][1] = y;
-      println("Chameleon = x: " + x + ",y: " + y);
       chameleonPlaced++; 
     }
   }
@@ -59,10 +57,10 @@ boolean bananaHit() {
     if (devMode) {
     fill(255,255,0);
     square(xBanana, yBanana, squareSize);
+    println("Banana = x: " + xBanana + ",y: " + yBanana);
     }
     
-      if (xPlayer == xBanana && yPlayer == yBanana) {
-        println("HIT");
+      if (centipedePos[0][0] == xBanana && centipedePos[0][1] == yBanana) {
         return true; 
       }
   }
@@ -81,9 +79,9 @@ boolean chameleonHit() {
     if (devMode) {
     fill(0,255,0);
     square(xChameleon, yChameleon, squareSize);
+    println("Chameleon = x: " + xChameleon + ",y: " + yChameleon);
     }
-      if (xPlayer == xChameleon && yPlayer == yChameleon) {
-        println("HIT");
+      if (centipedePos[0][0] == xChameleon && centipedePos[0][1] == yChameleon) {
         return true; 
       }
   }

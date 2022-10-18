@@ -35,6 +35,7 @@ void draw() {
     drawSpelscherm();
     //constrainCentipede(); 
     drawCentipede();
+    println("Player = x: " + centipedePos[0][0] + ",y: " + centipedePos[0][1]);
     
     if (centipedePos.length == 1) {
       curScreen = EINDSCHERM; 
