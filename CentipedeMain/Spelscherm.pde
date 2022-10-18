@@ -20,16 +20,21 @@ void drawSpelscherm() {
     text("Score speler 2: " + scoreP2, width - width/5, height/7); 
   }
   
-  
   drawPlayingGrid(); 
+  
+  //LET OP MOET GEFIXT WORDEN!!
+  if (bananaHit()) {
+    scoreP1 += 10; 
+  }
+  if (chameleonHit()) {
+    shortenCentipede(centipedePos); 
+  }
+  //TOT HIER!!
+  
+  
   createButton("Stop", width/2 - (buttonWidth/2), height - buttonHeight - 50, buttonWidth, buttonHeight); 
   text("Verstreken tijd: " + (millis() - timerStart)/1000, width/2, height/5);
 }
-
-//boolean timeOver() {
-// IF no input for 20 seconds return true
-//  return (millis() - timerStart)/1000 == 20; 
-//}
 
 void drawPlayingGrid() {
   fill(255);

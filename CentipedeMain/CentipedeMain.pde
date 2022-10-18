@@ -1,5 +1,5 @@
  
-
+boolean devMode = true; 
 int squareSize = 25;
 int curScreen = 0; 
 int timerStart = 0; 

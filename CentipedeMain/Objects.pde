@@ -7,24 +7,6 @@ int chameleonCounter = floor(bananaCounter/10);
 int chameleonPlaced = 0; 
 int bananaPlaced = 0; 
 
-//void createBananas() { 
-//  for (int i = 0; i < bananaCounter - 1; i++) {
-//    bananaPos[i][0] = floor(random(1 , playingField[fieldSize - 1][0] - 1)); 
-//    bananaPos[i][1] = floor(random(playingField[fieldSize - 1][1])); 
-//    println("x: " + bananaPos[i][0] + "y: "+ bananaPos[i][1]);
-//  }
-//}
-
-//void createChameleons() {
-//  //draw 10% of bananaCounter
-//  float amnt = bananaCounter / 10;
-//  for (int i = 0; i < (int)amnt; i++) {
-//    chameleonPos[i][0] = floor(random(1 , playingField[fieldSize - 1][0])); 
-//    chameleonPos[i][1] = floor(random(playingField[fieldSize - 1][1])); 
-//    println("x: " + chameleonPos[i][0] + "y: "+ chameleonPos[i][1]);
-//  }
-//}
-
 void createBananas() {
   while (bananaPlaced < bananaCounter) {
     int x = floor(random(1 , playingField[fieldSize - 1][0])); 
@@ -65,6 +47,28 @@ boolean posFree(int x, int y) {
   return true; 
 }
 
+boolean bananaHit() {
+  int xBanana;
+  int yBanana; 
+  for (int i = 0; i < bananaPos.length; i++) {
+    //offset x
+    xBanana = width/2 - ((playingField[fieldSize - 1][0] * squareSize) /2 ) + bananaPos[i][0] * squareSize; 
+    //offset y
+    yBanana = height/3 - (squareSize*2) + bananaPos[i][1] * squareSize;
+    
+    if (devMode) {
+    fill(255,255,0);
+    square(xBanana, yBanana, squareSize);
+    }
+    
+      if (xPlayer == xBanana && yPlayer == yBanana) {
+        println("HIT");
+        return true; 
+      }
+  }
+  return false; 
+}
+
 boolean chameleonHit() {
   int xChameleon;
   int yChameleon; 
@@ -73,7 +77,13 @@ boolean chameleonHit() {
     xChameleon = width/2 - ((playingField[fieldSize - 1][0] * squareSize) /2 ) + chameleonPos[i][0] * squareSize; 
     //offset y
     yChameleon = height/3 - (squareSize*2) + chameleonPos[i][1] * squareSize;
+     
+    if (devMode) {
+    fill(0,255,0);
+    square(xChameleon, yChameleon, squareSize);
+    }
       if (xPlayer == xChameleon && yPlayer == yChameleon) {
+        println("HIT");
         return true; 
       }
   }
