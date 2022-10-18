@@ -22,16 +22,6 @@ void drawSpelscherm() {
   
   drawPlayingGrid(); 
   
-  //LET OP MOET GEFIXT WORDEN!!
-  if (bananaHit()) {
-    scoreP1 += 10; 
-  }
-  if (chameleonHit()) {
-    shortenCentipede(centipedePos); 
-  }
-  //TOT HIER!!
-  
-  
   createButton("Stop", width/2 - (buttonWidth/2), height - buttonHeight - 50, buttonWidth, buttonHeight); 
   text("Verstreken tijd: " + (millis() - timerStart)/1000, width/2, height/5);
 }

@@ -35,7 +35,13 @@ void draw() {
     drawSpelscherm();
     //constrainCentipede(); 
     drawCentipede();
-    println("Player = x: " + centipedePos[0][0] + ",y: " + centipedePos[0][1]);
+    
+    if (devMode) {
+      println("Player = x: " + centipedePos[0][0] + ",y: " + centipedePos[0][1]);
+      bananaHit();
+      chameleonHit(); 
+    }
+    
     
     if (centipedePos.length == 1) {
       curScreen = EINDSCHERM; 
@@ -96,4 +102,11 @@ void mouseReleased() {
 
 void keyPressed() {
   moveCentipede();
+  
+  if (bananaHit()) {
+    scoreP1 += 10; 
+  }
+  if (chameleonHit()) {
+    shortenCentipede(centipedePos); 
+  }
 }
