@@ -61,13 +61,13 @@ void createPlayingFieldSelector() {
   for (int i = 0; i < playingField.length; i++) {
     fill(colorTheme[2]);
     textSize(10);
-    
+
     //Correctie ivm vorige methodes
-      if (fieldSize == i + 1) {
+    if (fieldSize == i + 1) {
       fill(colorTheme[4]);
     }
 
-    text(playingField[i][0] + "x" + playingField[i][1] , width/3 + margin + sWidth, height/3 + 170);
+    text(playingField[i][0] + "x" + playingField[i][1], width/3 + margin + sWidth, height/3 + 170);
     margin += sWidth;
   }
 }

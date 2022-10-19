@@ -7,7 +7,7 @@ int centipedePos[][] = {
   {200, yPlayer + 2 * squareSize}, 
   {200, yPlayer + 3 * squareSize}, 
   {200, yPlayer + 4 * squareSize}, 
-  {200, yPlayer + 5 * squareSize},
+  {200, yPlayer + 5 * squareSize}, 
   {200, yPlayer + 6 * squareSize}
 }; 
 
@@ -46,7 +46,7 @@ void cycleThroughArray() {
 }
 
 boolean conCentipede() {
- return testPosX > xConMin && testPosX < xConMax && testPosY > yConMin && testPosY < yConMax;
+  return testPosX > xConMin && testPosX < xConMax && testPosY > yConMin && testPosY < yConMax;
 }    
 
 boolean collisionDetection(int testPosX, int testPosY) {
@@ -60,13 +60,13 @@ boolean collisionDetection(int testPosX, int testPosY) {
 
 int[][] shortenCentipede(int[][] array) {
   int[][] newCentipede = new int[array.length-1][2];
-  
+
   for (int i = 0; i < array.length - 1; i++) {
     newCentipede[i][0] = array[i][0];
-    newCentipede[i][1] = array[i][1]; 
+    newCentipede[i][1] = array[i][1];
   }
-  
-  return newCentipede; 
+
+  return newCentipede;
 }
 
 void moveCentipede() {

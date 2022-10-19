@@ -11,9 +11,9 @@ void createButton(String text, int x, int y, int bWidth, int bHeight) {
   fill(colorTheme[3]);
   noStroke();  
   rect(x, y, bWidth, bHeight); 
-  
+
   fill(colorTheme[4]);
-  textAlign(CENTER,CENTER);
+  textAlign(CENTER, CENTER);
   textSize(20);
   text(text, x + bWidth/2, y + (buttonHeight/2) - 5);
 }
@@ -28,5 +28,5 @@ void createButtonRow(int rowAmnt, int margin, int sWidth, int y) {
 }
 
 boolean mouseButtonCheck(int xMouse, int yMouse, int buttonX, int buttonY, int bWidth, int bHeight) {
-  return (xMouse > buttonX && yMouse > buttonY && xMouse < buttonX + bWidth && yMouse < buttonY + bHeight); 
+  return (xMouse > buttonX && yMouse > buttonY && xMouse < buttonX + bWidth && yMouse < buttonY + bHeight);
 }

@@ -9,7 +9,7 @@ void drawEndscreen() {
   textSize(60); 
   fill(colorTheme[1]);
   text("Centipede", width/2, height/15);
-  
+
   textSize(20);
   text("Eindscore: " + scoreP1, width/2, height/4); 
   drawRestartButton();
