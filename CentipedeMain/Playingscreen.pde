@@ -1,8 +1,4 @@
 final int PLAYINGSCREEN = 1;  
-int score = 0; 
-int stage = 0;
-
-int lastScore;
 
 void drawPlayingscreen() {
   textFont(gm);
