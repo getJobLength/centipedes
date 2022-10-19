@@ -1,4 +1,4 @@
-final int STARTSCHERM = 0; 
+final int STARTSCREEN = 0; 
 PFont gm; 
 
 int playerCount = 1; 

@@ -27,10 +27,10 @@ void setup() {
 void draw() {
   background(colorTheme[0]);    
 
-  if (curScreen == STARTSCHERM) {
+  if (curScreen == STARTSCREEN) {
     createStart();
-  } else if (curScreen == SPELSCHERM) {
-    drawSpelscherm(); 
+  } else if (curScreen == PLAYINGSCREEN) {
+    drawPlayingscreen(); 
     drawCentipede();
 
     if (devMode) {
@@ -40,9 +40,9 @@ void draw() {
     }
 
     if (centipedePos.length == 1 || scoreP1 == bananaCounter * 10) {
-      curScreen = EINDSCHERM;
+      curScreen = ENDSCREEN;
     }
-  } else if (curScreen == EINDSCHERM) {
+  } else if (curScreen == ENDSCREEN) {
     drawEndscreen();
   }
 }
@@ -75,7 +75,7 @@ void mouseReleased() {
 
   // Start button. 
   if (mouseButtonCheck(mouseX, mouseY, buttonX, buttonY + 200, buttonWidth, buttonHeight)) {
-    curScreen = SPELSCHERM;
+    curScreen = PLAYINGSCREEN;
     createBananas();
     createChameleons();
     timerStart = millis();
@@ -83,7 +83,7 @@ void mouseReleased() {
 
   // Stop button. 
   if (mouseButtonCheck(mouseX, mouseY, width/2 - (buttonWidth/2), height - buttonHeight - 50, buttonWidth, buttonHeight)) {
-    curScreen = STARTSCHERM; 
+    curScreen = STARTSCREEN; 
     //lastScore = score; 
     //score = 0;
   }
@@ -91,7 +91,7 @@ void mouseReleased() {
   // Restart button. 
   if (mouseButtonCheck(mouseX, mouseY, width/2 - (buttonWidth/2), height/2, buttonWidth, buttonHeight)) {
     scoreP1 = 0; 
-    curScreen = STARTSCHERM;
+    curScreen = STARTSCREEN;
   }
 }
 

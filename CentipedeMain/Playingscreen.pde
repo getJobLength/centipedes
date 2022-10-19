@@ -1,10 +1,10 @@
-final int SPELSCHERM = 1;  
+final int PLAYINGSCREEN = 1;  
 int score = 0; 
 int stage = 0;
 
 int lastScore;
 
-void drawSpelscherm() {
+void drawPlayingscreen() {
   textFont(gm);
   textAlign(CENTER, CENTER);
   textSize(60); 

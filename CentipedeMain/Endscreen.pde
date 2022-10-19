@@ -1,4 +1,4 @@
-final int EINDSCHERM = 3; 
+final int ENDSCREEN = 3; 
 
 void drawEndscreen() {
   // laat score zien
